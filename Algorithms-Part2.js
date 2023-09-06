@@ -16,3 +16,35 @@ function longestSubstring(str1, str2) {
     }
     return longest
 }
+
+//2. Given a string, find the first non-repeating character in it and return it's index. If it doesn't exist, return -1. ex: "leetcode" -> 0, "loveleetcode" -> 2
+function firstNonRepeating(str) {
+    for(let i = 0; i < str.length; i++) {
+        let curr = str[i]
+        if(str.indexOf(curr) === str.lastIndexOf(curr)) {
+            return i
+        }
+    }
+    return -1
+}
+//Time complexity: O(n^2)
+
+function firstNonRepeating(str) {
+    let hash = {}
+    for(let i = 0; i < str.length; i++) {
+        let curr = str[i]
+        if(hash[curr]) {
+            hash[curr]++
+        } else {
+            hash[curr] = 1
+        }
+    }
+    for(let i = 0; i < str.length; i++) {
+        let curr = str[i]
+        if(hash[curr] === 1) {
+            return i
+        }
+    }
+    return -1
+}
+//Time complexity: O(n)
