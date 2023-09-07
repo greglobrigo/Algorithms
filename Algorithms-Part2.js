@@ -48,3 +48,23 @@ function firstNonRepeating(str) {
     return -1
 }
 //Time complexity: O(n)
+
+//3. Given a string, find the length of the longest substring without repeating characters. ex: "abcabcbb" -> 3, "bbbbb" -> 1, "pwwkew" -> 3
+function longestSubstring(str) {
+    let longest = ''
+    for(let i = 0; i < str.length; i++) {
+        let substring = ''
+        for(let j = i; j < str.length; j++) {
+            if(substring.includes(str[j])) {
+                break
+            } else {
+                substring += str[j]
+            }
+        }
+        if(substring.length > longest.length) {
+            longest = substring
+        }
+    }
+    return longest.length
+}
+//Time complexity: O(n^2)
