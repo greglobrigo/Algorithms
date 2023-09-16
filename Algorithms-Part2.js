@@ -68,3 +68,17 @@ function longestSubstring(str) {
     return longest.length
 }
 //Time complexity: O(n^2)
+
+//Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.
+//Follow up: The overall run time complexity should be O(log (m+n)).
+
+function findMedianSortedArrays(nums1, nums2) {
+    let arr = nums1.concat(nums2)
+    arr.sort((a,b) => a - b)
+    let mid = Math.floor(arr.length / 2)
+    if(arr.length % 2 === 0) {
+        return (arr[mid] + arr[mid - 1]) / 2
+    } else {
+        return arr[mid]
+    }
+}
