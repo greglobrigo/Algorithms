@@ -112,3 +112,11 @@ function decompose(n) {
     }
     return result.reverse()
 }
+
+//Solve Fibonacci sequence recursively
+function fib(n) {
+    if(n <= 1) {
+        return n
+    }
+    return fib(n - 1) + fib(n - 2)
+}
